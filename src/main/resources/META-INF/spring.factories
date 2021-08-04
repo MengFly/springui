@@ -1,0 +1,2 @@
+# RunListener
+org.springframework.boot.SpringApplicationRunListener=cn.mengfly.springui.SpringUiRunListener

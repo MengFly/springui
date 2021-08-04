@@ -1,0 +1,14 @@
+{
+  "properties": [
+    {
+      "name": "spring.ui.title",
+      "description": "Ui Application title",
+      "defaultValue": "Spring-Ui-Framework"
+    },
+    {
+      "name": "spring.ui.icon",
+      "description": "Ui Application icon, this path must be set of /resource dir",
+      "defaultValue": ""
+    }
+  ]
+}

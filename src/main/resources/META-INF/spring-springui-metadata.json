@@ -1,0 +1,23 @@
+{
+  "groups": [
+    {
+      "name": "spring.ui",
+      "type": "cn.mengfly.springui.properties.UiProperties",
+      "sourceType": "cn.mengfly.springui.properties.UiProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.ui.title",
+      "type": "java.lang.String",
+      "description": "Ui Application title",
+      "sourceType": "cn.mengfly.springui.properties.UiProperties"
+    },
+    {
+      "name": "spring.ui.icon",
+      "type": "java.lang.String",
+      "description": "Ui Application icon, this path must be set of /resource dir",
+      "sourceType": "cn.mengfly.springui.properties.UiProperties"
+    }
+  ]
+}

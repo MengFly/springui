@@ -1,0 +1,23 @@
+server:
+  port: 8080
+  test: 1234
+
+spring:
+  ui:
+    openUrlOnStared: http://localhost:8082/index.html#/
+    # 如果这个值为true，那么在点击界面中的关闭按钮后将会直接退出程序
+    exitOnClose: true
+    # Ui 界面的名称
+    title: SpringUi
+    # todo 标识程序是否只允许启动一个
+    singletonStart: false
+    # 要进行配置的item列表，其中id标识配置项，name表示在界面中展示给用户的名称
+    items:
+      - id: server.port
+        name: 端口号
+      - id: server.test
+        name: 测试Properties
+    # 系统托盘配置，如果enable为true，那么在启动SpringBoot后将会展示一个系统托盘
+    tray:
+      enable: false
+      hiddenMsg: ${spring.ui.title} 已经隐藏到系统托盘
