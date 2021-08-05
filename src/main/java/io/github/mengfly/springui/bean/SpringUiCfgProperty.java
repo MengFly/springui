@@ -1,7 +1,7 @@
-package cn.mengfly.springui.bean;
+package io.github.mengfly.springui.bean;
 
-import cn.mengfly.springui.util.ConfigFileManager;
-import cn.mengfly.springui.util.StringUtil;
+import io.github.mengfly.springui.util.ConfigFileManager;
+import io.github.mengfly.springui.util.StringUtil;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 

@@ -1,4 +1,4 @@
-package cn.mengfly.springui;
+package io.github.mengfly.springui;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;

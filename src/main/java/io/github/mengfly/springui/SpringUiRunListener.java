@@ -1,7 +1,7 @@
-package cn.mengfly.springui;
+package io.github.mengfly.springui;
 
-import cn.mengfly.springui.bean.SpringUiCfgProperty;
-import cn.mengfly.springui.ui.SpringUiModel;
+import io.github.mengfly.springui.bean.SpringUiCfgProperty;
+import io.github.mengfly.springui.ui.SpringUiModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.boot.SpringApplication;

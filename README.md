@@ -18,7 +18,7 @@ SpringBoot 程序启动后：
 > pom.xml
 ```xml
 <dependency>
-    <groupId>cn.mengfly</groupId>
+    <groupId>io.github.mengfly</groupId>
     <artifactId>springui</artifactId>
     <version>1.0.0</version>
 </dependency>
@@ -29,7 +29,7 @@ SpringBoot 程序启动后：
 > logback-spring.xml
 ```xml
 <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-  <filter class="cn.mengfly.springui.UiLogFilter">
+  <filter class="io.github.mengfly.springui.UiLogFilter">
     <level>info</level>
   </filter>
 </appender>

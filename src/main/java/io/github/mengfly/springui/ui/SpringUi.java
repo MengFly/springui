@@ -1,7 +1,7 @@
-package cn.mengfly.springui.ui;
+package io.github.mengfly.springui.ui;
 
-import cn.mengfly.springui.UiLogFilter;
-import cn.mengfly.springui.bean.PropertyItem;
+import io.github.mengfly.springui.UiLogFilter;
+import io.github.mengfly.springui.bean.PropertyItem;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.geometry.Insets;

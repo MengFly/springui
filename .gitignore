@@ -33,7 +33,6 @@ build/
 .vscode/
 
 /log
-*.xml
 *.cfg
 .mvn
 mvnw

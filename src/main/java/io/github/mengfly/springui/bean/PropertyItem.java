@@ -1,4 +1,4 @@
-package cn.mengfly.springui.bean;
+package io.github.mengfly.springui.bean;
 
 /**
  * @author Mengfly

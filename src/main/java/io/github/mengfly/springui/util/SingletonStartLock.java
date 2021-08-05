@@ -1,4 +1,4 @@
-package cn.mengfly.springui.util;
+package io.github.mengfly.springui.util;
 
 /**
  * 只允许程序启动一个实例

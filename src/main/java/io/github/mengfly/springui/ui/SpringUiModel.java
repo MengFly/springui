@@ -1,9 +1,9 @@
-package cn.mengfly.springui.ui;
+package io.github.mengfly.springui.ui;
 
-import cn.mengfly.springui.UiLogFilter;
-import cn.mengfly.springui.bean.PropertyItem;
-import cn.mengfly.springui.bean.SpringUiCfgProperty;
-import cn.mengfly.springui.util.StringUtil;
+import io.github.mengfly.springui.UiLogFilter;
+import io.github.mengfly.springui.bean.PropertyItem;
+import io.github.mengfly.springui.bean.SpringUiCfgProperty;
+import io.github.mengfly.springui.util.StringUtil;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;

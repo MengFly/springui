@@ -1,4 +1,4 @@
-package cn.mengfly.springui.util;
+package io.github.mengfly.springui.util;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

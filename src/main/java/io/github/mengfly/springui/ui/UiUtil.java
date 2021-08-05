@@ -1,6 +1,6 @@
-package cn.mengfly.springui.ui;
+package io.github.mengfly.springui.ui;
 
-import cn.mengfly.springui.util.StringUtil;
+import io.github.mengfly.springui.util.StringUtil;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.Property;

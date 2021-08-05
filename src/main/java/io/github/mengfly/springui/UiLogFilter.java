@@ -1,10 +1,10 @@
-package cn.mengfly.springui;
+package io.github.mengfly.springui;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.filter.Filter;
 import ch.qos.logback.core.spi.FilterReply;
-import cn.mengfly.springui.ui.SpringUiModel;
+import io.github.mengfly.springui.ui.SpringUiModel;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
