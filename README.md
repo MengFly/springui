@@ -45,6 +45,8 @@ spring:
   ui:
     # 这个配置适用于Web版本的Spring应用， 当应用正常启动后，自动打开该url
     openUrlOnStared: http://www.baidu.com
+    # 配置程序是否只允许启动一个
+    singletonStart: true
     # 如果没有打开系统托盘配置，并且这个值设置为true的时候，点击程序的关闭按钮会直接退出程序
     # 如果打开了系统托盘配置，并且
     exitOnClose: true

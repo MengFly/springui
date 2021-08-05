@@ -3,11 +3,11 @@ package io.github.mengfly.springui.ui;
 import io.github.mengfly.springui.UiLogFilter;
 import io.github.mengfly.springui.bean.PropertyItem;
 import io.github.mengfly.springui.bean.SpringUiCfgProperty;
+import io.github.mengfly.springui.util.SingletonStartLock;
 import io.github.mengfly.springui.util.StringUtil;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
-import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -19,8 +19,6 @@ import org.springframework.core.io.DefaultResourceLoader;
 import org.springframework.core.io.ResourceLoader;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
 import java.net.URL;
 import java.util.ArrayDeque;
 import java.util.Map;
@@ -29,7 +27,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Mengfly
@@ -107,8 +104,12 @@ public class SpringUiModel {
     public static void starting(ConfigurableApplicationContext context) {
         // 读取配置
         readConfiguration(context.getEnvironment());
-        // 启动界面
-        executor.execute(() -> SpringUi.launch(SpringUi.class));
+        if (!checkSingletonStart()) {
+            executor.execute(() -> SpringHasBeenStartedUi.launch(SpringHasBeenStartedUi.class));
+        } else {
+            // 启动界面
+            executor.execute(() -> SpringUi.launch(SpringUi.class));
+        }
         // 阻塞Spring应用
         await();
         Platform.runLater(() -> {
@@ -116,7 +117,13 @@ public class SpringUiModel {
             statusProperty().setValue("启动中");
             startingProperty.set(true);
         });
+    }
 
+    private static boolean checkSingletonStart() {
+        if (SpringUiModel.property.getSingletonStart()) {
+            return new SingletonStartLock().tryLock();
+        }
+        return true;
     }
 
     public static void running() {
@@ -132,28 +139,9 @@ public class SpringUiModel {
         Platform.runLater(() -> {
             statusColorProperty().setValue(Color.RED);
             statusProperty().setValue("启动失败");
-            AtomicReference<String> msg = new AtomicReference<>(null);
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            try (StringWriter writer = new StringWriter()) {
-                try (PrintWriter printWriter = new PrintWriter(writer)) {
-                    exception.printStackTrace(printWriter);
-                }
-                msg.set(writer.toString());
-            } catch (Exception ignored) {
-            }
-            if (msg.get() == null) {
-                alert.setContentText(exception.getMessage());
-            } else {
-                alert.setContentText(msg.get());
-            }
-            alert.setHeight(600);
-            alert.setHeaderText(exception.getClass().getSimpleName());
-            alert.setTitle("软件启动失败");
-            alert.setResizable(true);
-            alert.show();
+            UiUtil.ApplicationUi.showErrorAlert("启动失败", exception);
         });
     }
-
 
     static final Queue<UiLogFilter.UiLog> LOG_LIST = new ArrayDeque<>();
 

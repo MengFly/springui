@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -32,6 +33,8 @@ import java.util.function.Supplier;
  * @date 2021/8/3 9:08
  */
 class UiUtil {
+    private static final Log log = LogFactory.getLog(UiUtil.class);
+
     private static final ScheduledExecutorService UI_REFRESH_EXECUTOR = Executors.newSingleThreadScheduledExecutor();
 
     static <T> void bindPropertyScheduler(Property<T> property, long delay, TimeUnit timeUnit, Supplier<T> valueSupplier) {
@@ -56,8 +59,6 @@ class UiUtil {
                 Platform.runLater(() -> newValueListener.accept(newValue)));
     }
 
-    private static final Log log = LogFactory.getLog(UiUtil.class);
-
     static class ApplicationUi {
 
         static Button button(String text, EventHandler<ActionEvent> eventHandler) {
@@ -70,7 +71,7 @@ class UiUtil {
 
         static ProgressBar progressBar(DoubleProperty property) {
             ProgressBar progressBar = new ProgressBar();
-            progressBar.setMinHeight(24);
+            progressBar.setMinHeight(18);
             if (property != null) {
                 progressBar.progressProperty().bind(property);
             }
@@ -89,6 +90,18 @@ class UiUtil {
             HBox hBox = new HBox(spacing);
             hBox.setAlignment(alignment);
             return hBox;
+        }
+
+        static void showErrorAlert(String title, Throwable throwable) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            String content = StringUtil.nullOrElse(StringUtil.exceptionStackTrace(throwable), throwable.getMessage());
+            alert.setContentText(content);
+            alert.setHeight(600);
+            alert.setResizable(true);
+            alert.setHeaderText(StringUtil.reLineString(throwable.getMessage(), 100));
+            alert.setTitle(title);
+            alert.setResizable(true);
+            alert.show();
         }
     }
 
@@ -177,7 +190,6 @@ class UiUtil {
             }
             return mInstance;
         }
-
 
     }
 }

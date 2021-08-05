@@ -26,7 +26,7 @@ public class SpringUiRunListener implements SpringApplicationRunListener, Ordere
     }
 
     @Override
-    public void contextPrepared(ConfigurableApplicationContext context) {
+    public void contextPrepared(ConfigurableApplicationContext context){
         SpringUiModel.starting(context);
         addCustomPropertiesEnvironment(context.getEnvironment());
     }

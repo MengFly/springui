@@ -41,7 +41,6 @@ public class SpringUi extends Application {
         instance = this;
         Platform.setImplicitExit(false);
         this.primaryStage = primaryStage;
-
         VBox root = sceneRoot();
         TitledPane settingPane = configPanel();
         VBox.setVgrow(settingPane, Priority.ALWAYS);
