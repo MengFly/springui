@@ -9,6 +9,7 @@ spring:
     exitOnClose: true
     # Ui 界面的名称
     title: SpringUi
+    logMaxLine: 200
     # 标识程序是否只允许启动一个
     singletonStart: false
     # 要进行配置的item列表，其中id标识配置项，name表示在界面中展示给用户的名称

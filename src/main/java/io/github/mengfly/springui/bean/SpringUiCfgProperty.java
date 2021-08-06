@@ -25,6 +25,7 @@ public class SpringUiCfgProperty {
     private Boolean sysTrayEnable = true;
     private String sysTrayMsg = "";
     private String openUrlOnStared = "";
+    private Integer logMaxLine = 200;
     private final Map<String, String> items = new LinkedHashMap<>();
 
     public String getName() {
@@ -53,6 +54,10 @@ public class SpringUiCfgProperty {
 
     public String getOpenUrlOnStared() {
         return openUrlOnStared;
+    }
+
+    public Integer getLogMaxLine() {
+        return logMaxLine;
     }
 
     private void loadItems(Environment environment) {
@@ -93,6 +98,7 @@ public class SpringUiCfgProperty {
         property.sysTrayMsg = environment.getProperty("spring.ui.tray.hiddenMsg", "");
         property.singletonStart = environment.getProperty("spring.ui.singletonStart", Boolean.class, false);
         property.openUrlOnStared = environment.getProperty("spring.ui.openUrlOnStared", "");
+        property.logMaxLine = environment.getProperty("spring.ui.logMaxLine", Integer.class, 200);
         property.loadItems(environment);
         return property;
     }

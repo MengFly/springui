@@ -21,15 +21,14 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import javafx.util.converter.DefaultStringConverter;
 
-import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
  * @author Mengfly
  * @date 2021/7/29 14:40
  */
 public class SpringUi extends Application {
-    private static final int MAX_LOG_SIZE = 200;
 
     private Stage primaryStage;
     private TextArea logArea;
@@ -107,7 +106,7 @@ public class SpringUi extends Application {
         logArea.setMinHeight(200);
         logArea.setFont(Font.font(null, FontWeight.NORMAL, FontPosture.REGULAR, 14));
         logArea.setText("在logback配置文件中配置cn.mengfly.springui.UiLogFilter启动日志输出");
-        logLength = new ArrayDeque<>();
+        logLength = new ConcurrentLinkedDeque<>();
 
         Label label = new Label("运行日志:");
         logAreaLayout.getChildren().addAll(label, logArea);
@@ -185,7 +184,7 @@ public class SpringUi extends Application {
         if (instance == null) {
             return false;
         }
-        instance.appendLog(log);
+        Platform.runLater(() -> instance.appendLog(log));
         return true;
     }
 
@@ -193,9 +192,11 @@ public class SpringUi extends Application {
         if (logLength.isEmpty()) {
             logArea.clear();
         }
-        while (logLength.size() > MAX_LOG_SIZE) {
+        while (logLength.size() > SpringUiModel.property.getLogMaxLine()) {
             Integer poll = logLength.poll();
-            logArea.deleteText(0, poll);
+            if (poll != null) {
+                logArea.deleteText(0, poll - 1);
+            }
         }
         String content = log.toString();
         logArea.appendText(content);

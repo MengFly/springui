@@ -1,5 +1,7 @@
 package io.github.mengfly.springui;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +14,7 @@ import org.springframework.context.ApplicationListener;
  */
 @SpringBootApplication
 public class SpringUiApplication implements ApplicationListener<ApplicationStartedEvent> {
+    static Log log = LogFactory.getLog(SpringUiApplication.class);
     @Value("${server.port}")
     public int port;
 
@@ -23,7 +26,17 @@ public class SpringUiApplication implements ApplicationListener<ApplicationStart
     @Override
     public void onApplicationEvent(ApplicationStartedEvent event) {
 //        int i = 1/0;
-        System.out.println("test serverPort :" + port);
+//        new Thread(() -> {
+//
+//            while (true) {
+//                log.info("test serverPort :" + port);
+//                try {
+//                    Thread.sleep(500);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
 
     }
 }
