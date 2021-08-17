@@ -4,6 +4,7 @@ import io.github.mengfly.springui.bean.SpringUiCfgProperty;
 import io.github.mengfly.springui.ui.SpringUiModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringApplicationRunListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -26,13 +27,41 @@ public class SpringUiRunListener implements SpringApplicationRunListener, Ordere
     }
 
     @Override
-    public void contextPrepared(ConfigurableApplicationContext context){
+    public void starting(ConfigurableBootstrapContext bootstrapContext) {
+    }
+
+    @Override
+    public void environmentPrepared(ConfigurableBootstrapContext bootstrapContext, ConfigurableEnvironment environment) {
+    }
+
+    @Override
+    public void starting() {
+    }
+
+    @Override
+    public void contextLoaded(ConfigurableApplicationContext context) {
+
+    }
+
+    @Override
+    public void environmentPrepared(ConfigurableEnvironment environment) {
+
+    }
+
+    @Override
+    public void started(ConfigurableApplicationContext context) {
+
+    }
+
+    @Override
+    public void contextPrepared(ConfigurableApplicationContext context) {
         SpringUiModel.starting(context);
         addCustomPropertiesEnvironment(context.getEnvironment());
     }
 
     private void addCustomPropertiesEnvironment(ConfigurableEnvironment environment) {
         Map<String, Object> propertyMap = SpringUiModel.getPropertyMap();
+
         MapPropertySource customProperties = new MapPropertySource("springUiProperties", propertyMap);
         environment.getPropertySources().addFirst(customProperties);
         log.info(String.format("use custom properties:\n %s", propertyMap.toString()));

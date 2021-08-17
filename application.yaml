@@ -4,7 +4,7 @@ server:
 
 spring:
   ui:
-    openUrlOnStared: http://localhost:8082/index.html#/
+    #    openUrlOnStared: http://localhost:8082/index.html#/
     # 如果这个值为true，那么在点击界面中的关闭按钮后将会直接退出程序
     exitOnClose: true
     # Ui 界面的名称
