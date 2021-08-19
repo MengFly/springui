@@ -7,7 +7,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author Mengfly
- * @date 2021/8/2 9:31
  */
 public class StringUtil {
 
@@ -40,6 +39,10 @@ public class StringUtil {
 
     /**
      * 根据最大长度换行
+     *
+     * @param content   原文本内容
+     * @param maxLength 每一行的最大长度
+     * @return 换行后的内容
      */
     public static String reLineString(String content, int maxLength) {
         StringBuilder builder = new StringBuilder();

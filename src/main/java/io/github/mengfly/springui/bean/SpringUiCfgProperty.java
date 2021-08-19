@@ -11,7 +11,6 @@ import java.util.*;
  * 软件配置信息
  *
  * @author Mengfly
- * @date 2021/8/4 16:34
  */
 public class SpringUiCfgProperty {
 

@@ -30,7 +30,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author Mengfly
- * @date 2021/7/29 15:59
  */
 public class SpringUiModel {
     private static final long _1M = 1024 * 1024;

@@ -11,7 +11,6 @@ import java.util.Date;
 
 /**
  * @author Mengfly
- * @date 2021/8/3 16:48
  */
 public class UiLogFilter extends Filter<ILoggingEvent> {
     private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

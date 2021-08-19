@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 
 /**
  * @author Mengfly
- * @date 2021/8/5 16:54
  */
 public class SpringHasBeenStartedUi extends Application {
     @Override

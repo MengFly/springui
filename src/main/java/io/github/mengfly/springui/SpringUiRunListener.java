@@ -16,7 +16,6 @@ import java.util.Map;
 
 /**
  * @author Mengfly
- * @date 2021/7/29 13:17
  */
 public class SpringUiRunListener implements SpringApplicationRunListener, Ordered {
 

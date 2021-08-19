@@ -26,7 +26,6 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
  * @author Mengfly
- * @date 2021/7/29 14:40
  */
 public class SpringUi extends Application {
 
@@ -105,7 +104,7 @@ public class SpringUi extends Application {
         logArea.setWrapText(true);
         logArea.setMinHeight(200);
         logArea.setFont(Font.font(null, FontWeight.NORMAL, FontPosture.REGULAR, 14));
-        logArea.setText("在logback配置文件中配置cn.mengfly.springui.UiLogFilter启动日志输出");
+        logArea.setText("在logback配置文件中配置io.github.mengfly.springui.UiLogFilter启动日志输出");
         logLength = new ConcurrentLinkedDeque<>();
 
         Label label = new Label("运行日志:");

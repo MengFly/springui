@@ -30,7 +30,6 @@ import java.util.function.Supplier;
 
 /**
  * @author Mengfly
- * @date 2021/8/3 9:08
  */
 class UiUtil {
     private static final Log log = LogFactory.getLog(UiUtil.class);

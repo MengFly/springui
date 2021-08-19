@@ -2,7 +2,6 @@ package io.github.mengfly.springui.bean;
 
 /**
  * @author Mengfly
- * @date 2021/7/29 16:03
  */
 public class PropertyItem {
 
